@@ -1,10 +1,11 @@
-DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tessa Maria Johnson Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -14,10 +15,11 @@ DOCTYPE html>
     }
 
     body {
-      background: url(https://t3.ftcdn.net/jpg/04/35/60/34/360_F_435603418_Wq7wq8dPK1lJk2p3MZhENa52g9DEHGoe.jpg) no-repeat center center fixed;
+      background:url(https://t3.ftcdn.net/jpg/04/35/60/34/360_F_435603418_Wq7wq8dPK1lJk2p3MZhENa52g9DEHGoe.jpg)no-repeat center center fixed;
       background-size: cover;
       color: #f4f4f4;
       padding: 2rem;
+      overflow-x: hidden;
     }
 
     header {
@@ -35,7 +37,6 @@ DOCTYPE html>
 
     .hero {
       display: flex;
-      flex-wrap: wrap;
       margin-top: 4rem;
       align-items: center;
       justify-content: space-between;
@@ -57,13 +58,27 @@ DOCTYPE html>
       color: #d0d0d0;
     }
 
-    .contact-info, .skills, .hobbies {
-      margin-top: 2rem;
+    .social-icons {
+      margin-top: 1rem;
     }
 
-    .contact-info p, .skills ul, .hobbies ul {
-      color: #f0f0f0;
-      line-height: 1.8;
+    .social-icons i {
+      margin-right: 1rem;
+      cursor: pointer;
+      color: #ffc107;
+    }
+
+    .logos {
+      display: flex;
+      justify-content: space-around;
+      background-color: rgba(43, 43, 64, 0.6);
+      padding: 1rem;
+      margin: 3rem 0;
+      border-radius: 10px;
+    }
+
+    .section {
+      margin-top: 2rem;
     }
 
     .section h2 {
@@ -71,20 +86,80 @@ DOCTYPE html>
       color: #ffffff;
     }
 
-    ul {
-      list-style-type: disc;
-      margin-left: 20px;
+    .card {
+      background-color: rgba(43, 43, 64, 0.7);
+      margin: 1rem 0;
+      padding: 1rem;
+      border-radius: 12px;
+      color: #f0f0f0;
     }
 
-    .hero-image img {
-      width: 300px;
-      border-radius: 50%;
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeIn 1s ease-out forwards;
+    }
+
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      animation: slideInLeft 1s ease forwards;
+    }
+
+    .slide-in-right {
+      opacity: 0;
+      transform: translateX(50px);
+      animation: slideInRight 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInLeft {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
   </style>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const fadeElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
+      const options = {
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            entry.target.style.animationDelay = `${Array.from(fadeElements).indexOf(entry.target) * 0.2}s`;
+            entry.target.style.animationPlayState = 'running';
+            observer.unobserve(entry.target);
+          }
+        });
+      }, options);
+
+      fadeElements.forEach(el => {
+        el.style.animationPlayState = 'paused';
+        observer.observe(el);
+      });
+    });
+  </script>
 </head>
 <body>
-
-  <header>
+  <header class="slide-in-left">
     <h2>Tessa</h2>
     <nav>
       <a href="#">Home</a>
@@ -94,49 +169,47 @@ DOCTYPE html>
     </nav>
   </header>
 
-  <section class="hero">
+  <section class="hero slide-in-right">
     <div class="hero-text">
       <p>Hello, I’m</p>
       <h1>Tessa Maria Johnson</h1>
       <p>I’m a Computer Science student passionate about technology, programming, and design. I love exploring new skills, building creative digital projects, and continuously learning to grow in the CS field.</p>
-      <div class="contact-info">
-        <p><strong>Date of Birth:</strong> 17 June 2004</p>
-        <p><strong>College:</strong> Amal Jyothi Engineering College</p>
-        <p><strong>Phone:</strong> +91-918587654321</p>
-        <p><strong>Email:</strong> tessamariajohnson@gmail.com</p>
+      <div class="social-icons">
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-linkedin"></i>
+        <i class="fab fa-pinterest"></i>
       </div>
     </div>
     <div class="hero-image">
-      <img src="your-photo.jpg" alt="Tessa Maria Johnson">
+      <img src="your-photo.jpg" alt="Tessa Maria Johnson" style="width: 300px; border-radius: 50%;">
     </div>
   </section>
 
-  <section class="section skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>HTML, CSS, JavaScript</li>
-      <li>Python Programming</li>
-      <li>C Programming</li>
-      <li>Java</li>
-      <li>React.js</li>
-      <li>Node.js</li>
-      <li>UI/UX Design</li>
-      <li>Version Control (Git & GitHub)</li>
-      <li>MySQL & MongoDB</li>
-      <li>Cloud Basics (AWS, Firebase)</li>
-      <li>Data Structures & Algorithms</li>
-      <li>Responsive Web Design</li>
-    </ul>
+  <div class="logos fade-in">
+    <span>Meta</span>
+    <span>Google</span>
+    <span>LinkedIn</span>
+    <span>Slack</span>
+  </div>
+
+  <section class="section fade-in">
+    <h2>What Can I Do For Your Needs</h2>
+    <p>As a CS student, I am skilled in key areas essential to the tech world, focusing on learning, experimenting, and growing through real-world projects.</p>
+    <p>250+ Projects Completed | 100+ Community Network</p>
   </section>
 
-  <section class="section hobbies">
-    <h2>Hobbies</h2>
-    <ul>
-      <li>Coding</li>
-      <li>Reading Novels</li>
-      <li>Listening to Music</li>
-    </ul>
+  <section class="section">
+    <div class="card fade-in">UI/UX Design — 117 Projects</div>
+    <div class="card fade-in">Front End Development — 84 Projects</div>
+    <div class="card fade-in">Mobile App Development — 32 Projects</div>
+    <div class="card fade-in">Python Programming — 45 Projects</div>
+    <div class="card fade-in">C Programming — 39 Projects</div>
+    <div class="card fade-in">Full Stack Web Development — 50 Projects</div>
   </section>
-
 </body>
 </html>
+
+
+  
+   
