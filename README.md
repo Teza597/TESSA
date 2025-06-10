@@ -1,1 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tessa Maria Johnson Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
+    body {
+      background: url(https://t3.ftcdn.net/jpg/04/35/60/34/360_F_435603418_Wq7wq8dPK1lJk2p3MZhENa52g9DEHGoe.jpg) no-repeat center center fixed;
+      background-size: cover;
+      color: #f4f4f4;
+      padding: 2rem;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      color: #f4f4f4;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 300;
+    }
+
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 4rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .hero-text {
+      max-width: 50%;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .hero-text p {
+      margin-top: 1rem;
+      line-height: 1.6;
+      color: #d0d0d0;
+    }
+
+    .contact-info, .skills, .hobbies {
+      margin-top: 2rem;
+    }
+
+    .contact-info p, .skills ul, .hobbies ul {
+      color: #f0f0f0;
+      line-height: 1.8;
+    }
+
+    .section h2 {
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+
+    ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+
+    .hero-image img {
+      width: 300px;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h2>Tessa</h2>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Portfolio</a>
+      <a href="#">Projects</a>
+      <a href="#">About</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <p>Hello, I’m</p>
+      <h1>Tessa Maria Johnson</h1>
+      <p>I’m a Computer Science student passionate about technology, programming, and design. I love exploring new skills, building creative digital projects, and continuously learning to grow in the CS field.</p>
+      <div class="contact-info">
+        <p><strong>Date of Birth:</strong> 17 June 2004</p>
+        <p><strong>College:</strong> Amal Jyothi Engineering College</p>
+        <p><strong>Phone:</strong> +91-918587654321</p>
+        <p><strong>Email:</strong> tessamariajohnson@gmail.com</p>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="your-photo.jpg" alt="Tessa Maria Johnson">
+    </div>
+  </section>
+
+  <section class="section skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>HTML, CSS, JavaScript</li>
+      <li>Python Programming</li>
+      <li>C Programming</li>
+      <li>Java</li>
+      <li>React.js</li>
+      <li>Node.js</li>
+      <li>UI/UX Design</li>
+      <li>Version Control (Git & GitHub)</li>
+      <li>MySQL & MongoDB</li>
+      <li>Cloud Basics (AWS, Firebase)</li>
+      <li>Data Structures & Algorithms</li>
+      <li>Responsive Web Design</li>
+    </ul>
+  </section>
+
+  <section class="section hobbies">
+    <h2>Hobbies</h2>
+    <ul>
+      <li>Coding</li>
+      <li>Reading Novels</li>
+      <li>Listening to Music</li>
+    </ul>
+  </section>
+
+</body>
+</html>
